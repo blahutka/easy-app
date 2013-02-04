@@ -12,8 +12,8 @@ class Views::Admin::ProvisionServices::Filters < Views::Application::Filters
   filter :provision_services, :primary_provider, :as => :dropdown,
          :active => :primary_provider_eq,
          :collection => [
-             [I18n.translate("boolean.'true'"), primary_provider_eq: true],
-             [I18n.translate("boolean.'false'"), primary_provider_eq: false],
+             [I18n.translate("boolean.true"), primary_provider_eq: true],
+             [I18n.translate("boolean.false"), primary_provider_eq: false],
          ]
 
   filter :provision_services, :service_provider, :as => :dropdown,
