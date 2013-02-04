@@ -1,0 +1,18 @@
+var defect_description =  $('textarea[name*="[defect_description]"]');
+var product_num_help = $('#service_request_product_num');
+var serial_num_help = $('#service_request_serial_num');
+
+defect_description.attr('title', '<%= escape_javascript(resource.name) %>');
+defect_description.data('content', '<%= escape_javascript(simple_format(resource.defect_help)) %>');
+defect_description.data('edited', false)
+defect_description.attr('value', '<%= escape_javascript(resource.defect_template) %>');
+
+product_num_help.attr('title', '<%= escape_javascript(resource.name) %>');
+product_num_help.data('content', '<%= escape_javascript(resource.product_num_help) %>');
+
+serial_num_help.attr('title', '<%= escape_javascript(resource.name) %>');
+serial_num_help.data('content', '<%= escape_javascript(resource.serial_num_help) %>');
+
+<%= render :partial => "brands", locals: {brands: resource.product_brands } %>
+
+

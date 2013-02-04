@@ -1,0 +1,12 @@
+<%= simple_form_for [:admin, @product_category] do |f| %>
+    <div class="modal-body">
+      <%= f.input :name %>
+      <%= f.input :defect_help, :input_html => {rows: 5, class: 'span7'} %>
+      <%= f.input :defect_template, :input_html => {rows: 5, class: 'span7'} %>
+      <%= f.input :product_num_help, :input_html => {rows: 5, class: 'span7'}, :hint => 'Šablona kde hledat seriové číslo' %>
+      <%= f.input :serial_num_help, :input_html => {rows: 5, class: 'span7'}, :hint => 'Šablona kde hledat číslo produktu' %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+<% end %>

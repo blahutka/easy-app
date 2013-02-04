@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EasyServis.cz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <style type="text/css">
+      body {
+          padding-top:60px;
+          padding-bottom:40px;
+          }
+
+      .sidebar-nav {
+          padding:9px 0;
+          }
+  </style>
+</head>
+<body data-spy="scroll" data-target=".subnav" data-offset="55" lang="cs" id="<%= 'admin' if current_user.try(:admin?) %>">
+<!-- Navbar
+================================================== -->
+<%= render :partial => '/shared/header/menu' %>
+<%= render :partial => "/admin/shared/menu" if signed_in? && current_user.admin? %>
+<div class="container">
+  <%= alert_inline(:info, :title => 'Info') { notice } if notice %>
+  <%= alert_inline(:error, :title => 'Upozornění!') { alert } if alert %>
+  <%= yield %>
+  <%= render '/shared/footer/footer' %>
+</div>
+<!-- /container -->
+<%= render :partial => "shared/ajax/indicator" %>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<% content_for :pickup_info_help do -%>
+    <h6>Informace pro přepravní společnost</h6>
+    <ul>
+      <li><strong>Adresa</strong>, na které předáte výrobek</li>
+      <li><strong>Poschodí</strong>, ve kterém bydlíte</li>
+      <li><strong>Čas</strong>, kdy budete k zastižení</li>
+      <li><strong>Telefon</strong>, na kterém budete v daný čas k zastižení</li>
+      <li><strong>Zvonek</strong>, na který zazvonit (Příjmení, Jméno)</li>
+    </ul>
+<% end -%>
+<legend>Odkud
+  <small>pokud se adresa liší od vaší kontaktní</small>
+</legend>
+<%= f.input :pickup_info, :as => :text, :hint => 'Doplňte i další důležité informace pro vyzvednutí zásilky (například patro, na koho zvonit, zda-li prozvonit atd). Odvoz zajišťuje externí firma.',
+            :input_html => {:rows => 5, :style => 'width: 75%;',
+                            'data-content' => yield(:pickup_info_help), title: 'Nápověda'} %>
+<legend>Co</legend>
+<%= f.association :product_category %>
+<%= f.association :product_brand, :input_html => {disabled: true} %>
+
+<%= f.input :product_num, :input_html => {
+        rel: 'popover',
+        'data-content' => (f.object.product_category ? f.object.product_category.product_num_help : nil),
+        :title => (f.object.product_category ? f.object.product_category : nil)} %>
+
+<%= f.input :serial_num, :input_html => {
+        rel: 'popover',
+        'data-content' => (f.object.product_category ? f.object.product_category.serial_num_help : nil),
+        :title => (f.object.product_category ? f.object.product_category : nil)} %>
+
+<%= f.input :service_type, :as => :radio_buttons, item_wrapper_class: 'inline', :label => 'Záruční servis',
+            :collection => [['ANO', true], ['NE', false]] %>
+
+
+<%= f.input :defect_description_edited, :as => :hidden %>
+<%= f.input :defect_description, :as => :text,
+            :input_html => {:rows => 7, :style => 'width: 75%;',
+                            'data-content' => (f.object.product_category ? f.object.product_category.defect_help : nil),
+                            :title => (f.object.product_category ? f.object.product_category : nil)
+            } %>
+

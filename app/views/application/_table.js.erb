@@ -1,0 +1,3 @@
+$('.<%= dom_class(resource_class, :table) %>, .table_empty').replaceWith('<%= escape_javascript(render(:partial => 'table', :formats => :html )) %>')
+$('.modal').modal('hide');
+$('.modal, .modal-backdrop').remove();

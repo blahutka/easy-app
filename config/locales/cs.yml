@@ -1,0 +1,122 @@
+cs:
+  filters:
+    disable: Zrušit filtr
+  tables:
+    no_entry: Nejsou žádná data
+
+  alert_inline:
+    html: <strong>%{title}</strong>&nbsp;%{message}
+  alert_block:
+    html: <h4 class='alert-heading'>%{title}<h4>%{message}
+  activerecord:
+    # USE Laboratory.model_name.human => "Laboratoř"
+    defaults: &defaults
+      actions: ''
+      updated_at: Aktualizováno
+      created_at: Vytvořeno
+    models:
+      product_category: Kategorie
+      product_brand: Značky
+      service_request: Objednávky
+      service_order: Objednávky
+      service_provider: Poskytovatelé servisu
+      provision_service: Služby
+      user: Uživatelé
+      customer_account: Účet zákazníka
+    # USE Laboratory.human_attribute_name(:street) => "Ulice"
+    attributes:
+      service_request: &service_request
+        <<: *defaults
+        serial_num: Sériové číslo
+        product_brand: Značka
+        product_brand_id: Značka
+        product_category: Kategorie
+        product_category_id: Kategorie
+        product_num: Název produktu
+        service_type: Záruční servis
+        pickup_info: Vyzvednutí zboží
+        defect_description: Popis závady
+
+      service_order:
+        <<: *service_request
+        <<: *defaults
+        company_type: Typ firmy
+        state: Stav
+        service_provider_id: Poskytovatel služby
+        service_provider: Poskytovatel služby
+        customer_account_id: Zákazník
+        service_request_id: Objednávka
+
+      provision_service:
+        <<: *defaults
+        percentage: Procenta (%)
+        money: Peníze (Kč)
+        reward: Odměna
+        product_category_id: Kategorie
+        product_category: Kategorie
+        product_brand_id: Značka
+        product_brand: Značka
+        service_provider: Poskytovatel služby
+        service_requests: Nové žádosti
+        service_orders: Přiřazené objednávky
+        primary_provider: Aktivní
+
+      address: &address
+        street: Ulice
+        zip: PSČ
+        city: Město
+        country: Země
+        full_address: Adresa
+
+      customer_account:
+        <<: *address
+        company_name: Název firmy
+        first_name: Jméno
+        last_name: Příjmení
+        name: Jméno
+        phone: Telefon
+        email: Email
+        ico: IČO
+        dic: DIČ
+
+      service_provider:
+        <<: *defaults
+        <<: *address
+        service_orders: Objednávky
+        company_name: Název společnosti
+        provision_services: Poskytuje služby
+        dic: DIČ
+        ico: IČO
+
+      product_category:
+        <<: *defaults
+        name: Název kategorie
+        brands: Značky
+        product_brands: Značky
+        defect_help: Nápověda k popisu závady
+        defect_template: Šablona popisu závady
+        serial_num_help: Seriové číslo
+        product_num_help: Produktové číslo
+
+      product_brand:
+        <<: *defaults
+        name: Název značky
+
+      user:
+        password: Heslo
+        password_confirmation: Potvrzení hesla
+        current_password: Původní heslo
+
+  sessions:
+    sign_out: "Logout"
+  service_orders:
+    orders_summary: "Orders summary"
+
+  views:
+    admin:
+      add_new: Přidat nového
+      product_brand:
+        add: "Přidat"
+  boolean:
+    'true': "Ano"
+    'false': "Ne"

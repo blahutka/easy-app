@@ -1,0 +1,33 @@
+<% if false -%>
+    <div class="navbar navbar-fixed-top nav1">
+      <div class="navbar-inner">
+        <div class="container-fluid"><h3>more</h3></div>
+      </div>
+    </div>
+<% end -%>
+<div class="navbar navbar-fixed-top nav2">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+
+      <ul class="nav">
+        <li>
+          <%= link_to 'EasyServis.cz', root_path, :class => 'brand' %>
+        </li>
+        <li class="active">
+          <%= link_to 'Home', root_path %>
+        </li>
+        <% if signed_in? %>
+            <li> <%= link_to(t('sessions.sign_out'), destroy_user_session_path, :method => :delete) %></li>
+            <li> <%= link_to("Account #{current_user.email}", customer_account_path) %></li>
+        <% else %>
+            <li> <%= link_to t('service_orders.orders_summary'), customer_service_orders_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+

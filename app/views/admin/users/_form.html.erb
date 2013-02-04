@@ -1,0 +1,20 @@
+<%= simple_form_for([:admin, resource]) do |f| %>
+    <%= f.error_notification %>
+    <% unless resource.new_record? %>
+        <%= link_to('<i class="icon-envelope icon-white"></i> Vygenerovat nové heslo'.html_safe,
+                    send_new_password_admin_user_path(resource), class: 'btn btn-warning') %>
+        &nbsp;<span class="info">a odeslat na email</span>
+        <hr>
+    <% end %>
+
+    <div class="inputs">
+      <%= f.input :admin %>
+      <%= f.input :email, :required => true, :autofocus => true %>
+      <%= f.input(:password, :required => true, :label => 'Heslo') if resource.new_record? %>
+      <%= f.input(:password_confirmation, :required => true, :label => 'Potvrdit heslo') if resource.new_record? %>
+    </div>
+
+    <div class="actions">
+      <%= f.button :submit, "Uložit" %>
+    </div>
+<% end %>

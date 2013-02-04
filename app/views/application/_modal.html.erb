@@ -1,0 +1,10 @@
+<div class="modal " id="popupModal">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+
+    <h3><%= local_assigns[:title] || 'No title' %> <%= content_tag(:small){local_assigns[:sub_title].presence || ''} %></h3>
+    <small><%= local_assigns[:description] %></small>
+  </div>
+  <%= yield %>
+</div>
+

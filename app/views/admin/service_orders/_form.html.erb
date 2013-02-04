@@ -1,0 +1,11 @@
+<%= simple_form_for [:admin, resource] do |f| %>
+    <div class="modal-body">
+    <%= f.input :state, :collection => [['Nová', 'new'], ['Hotovo', 'ready'], ['Skončená', 'finished']]%>
+      <%= f.association :service_provider, :collection => resource.available_service_providers,
+                        :label => 'Dostupní poskytovatelé' %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+<% end %>

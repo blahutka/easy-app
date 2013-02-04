@@ -1,0 +1,2 @@
+<% service_orders = @service_orders %>
+<%= Erector.inline { widget Views::Admin::ServiceOrders::Table, :collection => service_orders || collection } %>

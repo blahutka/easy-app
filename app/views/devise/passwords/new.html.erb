@@ -1,0 +1,15 @@
+<h2>Zapomněli jste heslo?</h2>
+<hr>
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :email, :required => true, :hint => 'který jste použil při registraci' %>
+  </div>
+    <br>
+  <div class="actions">
+    <%= f.button :submit, 'Odeslat instrukce pro nové přihlášení'.html_safe %>
+  </div>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

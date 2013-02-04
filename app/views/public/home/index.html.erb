@@ -1,0 +1,41 @@
+<div class="row-fluid">
+  <div class="span6">
+    <div class="well well-light clearfix">
+
+      <div class="row-fluid" style="text-align:center;">
+      </div>
+      <br>
+      <div class="row-fluid service_request">
+        <h1>Pohodový servis</h1>
+        <blockquote>přijedeme, odvezeme, opravíme a dovezeme</blockquote>
+        <!--<hr class="spacer">--> <br>
+        <%= render :partial => "public/service_requests/form" %>
+      </div>
+    </div>
+  </div>
+  <div class="span6">
+    <div class="well">
+      <h2>Pohodový servis</h2>
+      <h6>reklamujte spolehlivě a pohodlně</h6>
+      <br>
+      <div class="business-points">
+       <h3>Kdo jsme</h3>
+        <p>Jsme EasyService, s.r.o.</p>
+       <h3>Co děláme</h3>
+        <p>Zajišťujeme mimo jiné i prodej a servis kancelářské výpočetní techniky.</p>
+       <h3>Proč to děláme</h3>
+        <p>Abychom usnadnili nám a našim klientům život. Nebudete muset odvážet Vaše porouchané zařízení do servisu. Zdarma zařídíme odvoz do servisu a zpět.</p>
+       <h3>Co zařídíme</h3>
+        <p>Záruční nebo pozáruční opravy notebooků HP, Samsung a Dell, Fujitsu Siemens, serverů HP a Dell, tiskáren HP a Samsung.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<script type="text/javascript">
+    $('a.service_request').click(function () {
+        $('div.service_request').toggle('slow');
+    })
+</script>

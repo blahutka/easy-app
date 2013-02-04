@@ -1,0 +1,4 @@
+<%= js_modal(partial: 'detail', :locals  => { title: 'Zakazka',
+sub_title: "##{resource.id} #{content_tag(:span, class: 'label'){resource.state}} ".html_safe,
+:description => "Ze dne: #{l(resource.created_at.to_date)}"
+}) %>

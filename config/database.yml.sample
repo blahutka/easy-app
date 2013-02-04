@@ -1,0 +1,37 @@
+# MySQL.  Versions 4.1 and 5.0 are recommended.
+# 
+# Install the MYSQL driver
+#   gem install mysql2
+#
+# Ensure the MySQL gem is defined in your Gemfile
+#   gem 'mysql2'
+#
+# And be sure to use new-style password hashing:
+#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: easyservice_development
+  username: root
+  password:
+
+production:
+  <<: *default
+  database: easyservice_production
+  username: root
+  password:
+
+test: &test
+  <<: *default
+  database: easyservice_test
+  username: root
+  password:
+
+cucumber:
+  <<: *test

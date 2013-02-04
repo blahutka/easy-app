@@ -1,0 +1,17 @@
+<h2>Registrace</h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :password, :required => true, :label => 'Heslo' %>
+    <%= f.input :password_confirmation, :required => true, :label => 'Potvrdit heslo' %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, "Registrovat" %>
+  </div>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

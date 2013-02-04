@@ -1,0 +1,4 @@
+$('#service_request_product_brand_id').
+        html('<%= escape_javascript(options_from_collection_for_select(brands, :id, :name)) %>');
+
+$('#service_request_product_brand_id').attr('disabled', false);

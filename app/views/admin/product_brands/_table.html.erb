@@ -1,0 +1,2 @@
+<%= Erector.inline { widget Views::Admin::ProductBrands::Table,
+                            :collection => collection.paginate(:per_page => 100, :page => 1)} %>

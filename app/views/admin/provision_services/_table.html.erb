@@ -1,0 +1,18 @@
+<% # MUST USE LOCAL VARIABLES TO PASS them to ERECTOR INLINE      %>
+<% provision_services = (@provision_services ||
+        (@service_provider.provision_services if @service_provider) ||
+        collection).
+        paginate(:per_page => 10, :page => params[:page].presence || 1)
+%>
+
+<% exclude_column = @service_provider.present? ? {:except => [:service_provider]} : {:except => []} %>
+<% service_provider =  @service_provider %>
+
+<%= Erector.inline { widget Views::Admin::ProvisionServices::Table, :collection => provision_services,
+                            :options => exclude_column, :service_provider => service_provider } %>
+
+
+
+
+
+

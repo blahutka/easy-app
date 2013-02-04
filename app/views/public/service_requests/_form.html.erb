@@ -1,0 +1,58 @@
+<% url = signed_in? ? [:customer,  @service_request ] : [@service_request] %>
+<%= simple_form_for url, :html => {:class => 'form-horizontal service_request'} do |f| %>
+    <%= spam_timestamp_tag %>
+    <%= f.error_notification :message => 'Níže ve formuláři se jsou nějaké chyby:' %>
+
+    <legend>Komu</legend>
+    <% unless signed_in? %>
+        <%= f.simple_fields_for :switch do |switch_f| %>
+            <%= switch_f.input :account, :as => :radio_buttons, item_wrapper_class: 'inline', :label => false,
+                               checked: f.object.switch ? f.object.switch[:account] : 'login',
+                               :wrapper_html => {class: 'switch_account'},
+                               :collection => [['Jsem registrovaný', 'login'], ['Vytvořit nový účet', 'register']] %>
+        <% end %>
+    <% end %>
+
+    <% if not signed_in? %>
+        <div class="login-user switch" id="switch_login">
+          <%= f.simple_fields_for (@user || User.new ) do |user_f| %>
+              <% email_error = user_f.object.errors[:email].present?  %>
+              <%= user_f.input :email, :hint => "#{link_to('zapomněli jste heslo?', new_user_password_path, target: '_blank') if email_error}" %>
+              <%= user_f.input :password, :as => :password %>
+          <% end %>
+        </div>
+    <% else %>
+        <div class="row-fluid">
+          <div class="well clearfix">
+            <address>
+              <strong><%= current_user.to_s %></strong> <br>
+              <%= current_account.to_s %>
+            </address>
+          </div>
+        </div>
+    <% end %>
+
+    <% if not signed_in? %>
+        <div class="register-user hide switch" id="switch_register">
+          <%= f.simple_fields_for (@customer_account || CustomerAccount.new ) do |register_f| %>
+              <%= render :partial => "customer/accounts/inputs", locals: {f: register_f} %>
+
+          <% end %>
+        </div>
+    <% end %>
+
+    <%= render :partial => "public/service_requests/inputs", locals: {f: f} %>
+    <div class="form-actions">
+      <%= f.button :submit, 'Pokračuj v objednávce >>', :id => 'submit_service_request', :class => 'btn btn-large btn-success' %>
+    </div>
+<% end %>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        <% unless @service_request.defect_description_edited %>
+        $('#service_request_product_category_id').trigger('change');
+        <% end %>
+
+    })
+</script>
+

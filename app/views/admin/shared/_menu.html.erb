@@ -1,0 +1,23 @@
+<div class="subnav subnav-fixed">
+  <ul class="nav nav-pills">
+    <li>
+      <%= link_to admin_dashboard_show_path do %>
+          <i class="icon-eye-open"></i>
+          Dashboard
+      <% end %>
+    </li>
+    <li>
+      <%= link_to admin_service_orders_path do %>
+          <i class="icon-list-alt"></i>
+          <%= t 'activerecord.models.service_order' %>
+      <% end %>
+    </li>
+    <li><%= link_to "<i class=\"icon-user\"></i>&nbsp;#{t('activerecord.models.service_provider')}".html_safe, admin_service_providers_path %></li>
+    <li><%= link_to "<i class=\"icon-repeat\"></i>&nbsp;#{t('activerecord.models.provision_service')}".html_safe, admin_provision_services_path %></li>
+    <li><%= link_to t('activerecord.models.product_category'), admin_product_categories_path %></li>
+    <!--<li><%#= link_to 'Značky', admin_product_brands_path %></li>-->
+    <li><%= link_to t('activerecord.models.user'), admin_users_path %></li>
+
+
+  </ul>
+</div>

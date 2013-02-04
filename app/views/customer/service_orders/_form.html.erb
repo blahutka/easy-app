@@ -1,0 +1,10 @@
+<%= simple_form_for [:customer, @service_order], :html => {:class => 'form-horizontal'} do |f| %>
+
+      <%= f.simple_fields_for :service_request do |f_request| %>
+          <%= render :partial => "public/service_requests/inputs", :locals => {f: f_request} %>
+      <% end %>
+
+    <div class="form-actions">
+      <%= f.button :submit, 'Uložit', :id => 'update_service_order' %>
+    </div>
+<% end %>

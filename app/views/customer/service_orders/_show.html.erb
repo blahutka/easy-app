@@ -1,0 +1,10 @@
+<div class="modal-body">
+  <%= Erector.inline { widget Views::Customer::ServiceOrders::Show::TablePreview,
+                              :row_objects => resource.attributes.keys,
+                              :object => resource } %>
+
+</div>
+
+<div class="form-actions">
+
+</div>

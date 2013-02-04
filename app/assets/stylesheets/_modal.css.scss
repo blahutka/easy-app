@@ -1,0 +1,33 @@
+.modal form {
+  margin:0;
+  }
+
+.modal.fixed {
+
+  a.close {
+    visibility:hidden;
+    }
+  .modal-body {
+    max-height:inherit;
+    }
+  }
+
+.modal .modal-footer .close {
+  font-size:13px;
+  opacity:1;
+  color:#999999;
+  margin:5px 10px;
+  }
+
+.modal .modal-footer .close:hover {
+  text-decoration:underline;
+  }
+
+.modal .form-actions, .modal-footer {
+  margin-bottom:0;
+  text-align:right;
+  }
+ // form is NOT in modal window
+.modal-body { max-height:none;}
+// form is in modal window
+.modal .modal-body { max-height:400px; }

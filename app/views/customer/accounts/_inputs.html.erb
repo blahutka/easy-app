@@ -1,0 +1,11 @@
+<%= f.input :company_name %>
+<%= f.input :dic %>
+<%= f.input :ico %>
+<%= f.input :first_name %>
+<%= f.input :last_name %>
+<%= f.input :phone %>
+<% email_error = f.object.errors[:email].present?  %>
+<%= f.input :email, :hint => "#{link_to('zapomněli jste heslo?', new_user_password_path, target: '_blank') if email_error}" %>
+<%= f.input :street %>
+<%= f.input :city %>
+<%= f.input :zip %>

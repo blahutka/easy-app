@@ -1,0 +1,10 @@
+<%= simple_fields_for :product_category do |f| %>
+    <%= f.input 'product_brand_ids',
+                      :collection => ProductBrand.all,
+                      :as => :select, :multiple => true,
+                      :wrapper_html => {:class => 'product_brands'},
+                      :input_html => {style: 'height: 200px;', class: 'span7', :multiple => true},
+                      :hint => "#{link_to t('views.admin.product_brand.add'),
+                                          new_admin_product_brand_path, remote: true}".html_safe %>
+
+<% end %>

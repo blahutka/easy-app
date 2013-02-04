@@ -1,0 +1,41 @@
+table caption {
+  padding:1em 0.5em;
+  text-align:left;
+  }
+
+table caption [class*="span"] {
+  float:left
+  }
+
+table .attribute {
+  text-transform:uppercase;
+  }
+
+table {
+  th.actions, td.actions {
+    text-align:right;
+
+    .btn-group { display:inline-block; }
+    }
+
+  .dropdown-menu {
+    left:auto;
+    right:0;
+    text-align:left;
+    }
+
+  th a { color:#333333; }
+  th a.active { color:#0088CC; }
+
+  }
+
+th {
+
+  &#service_orders, &#service_requests, &#primary_provider, &#reward {
+    width:20px;
+    }
+  }
+
+table .no-entry { font-size:20px; color:#E0E0E0; text-align:center !important;
+  margin-top:10px; font-weight:bold; text-transform:uppercase; }
+

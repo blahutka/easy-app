@@ -1,0 +1,56 @@
+/*
+ *= require bootstrap/index
+ *= require bootstrap/docs
+ *= require bootstrap-datepicker
+ *= require vendors/select2/select2
+ *= require_self
+*/
+@import "compass";
+@import "modal";
+@import "account_contacts";
+@import "tables";
+@import "filters";
+@import "forms";
+
+body .page-body { min-height:550px; }
+
+body#admin {
+  padding-top:90px;
+  }
+
+.clearfix:after {
+  content:".";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
+  }
+
+.business-points {
+  font-size:20px;
+
+  li {
+    line-height:30px;
+    }
+  }
+
+// FIX on mouse over tab
+.subnav .nav > li > a { padding-bottom:9px; }
+
+.nav1 .navbar-inner {
+  background-color:rgb(207, 231, 250); // Old browsers
+  @include filter-gradient(#cfe7fa, #6393c1, vertical); // IE6-9
+  @include background-image(linear-gradient(top, rgba(207, 231, 250, 1) 0%, rgba(99, 147, 193, 1) 100%));
+  color:black;
+  }
+
+.unknown {
+  color:#999;
+  }
+
+footer { margin-top:30px; }
+
+.well-light {
+  background-color:white;
+  box-shadow:0 1px 8px rgba(0, 0, 0, 0.05) inset;
+  }

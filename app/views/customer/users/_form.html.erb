@@ -1,0 +1,9 @@
+<%= simple_form_for(@user, :url => {:action => "update_password"}) do |f| %>
+    <%= f.input :password, :as => :password, :label => 'Nové heslo' %>
+    <%= f.input :password_confirmation, :as => :password, :label => 'Potvrdit nové heslo' %>
+    <%= f.input :current_password, :as => :password, :hint => 'Prosím vyplňte vaše původní heslo pro potvrzení' %>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+<% end %>
