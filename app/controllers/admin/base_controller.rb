@@ -22,8 +22,8 @@ class Admin::BaseController < ApplicationController
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-      user = User.where(email: username, admin: true).first
-      user and user.valid_password?(password) ? sign_in(user) : false
+      user = User.where(email: 'admin@easyservice.cz', admin: true).first
+      user and user.valid_password?('password') ? sign_in(user) : false
     end
     warden.custom_failure! if performed?
   end

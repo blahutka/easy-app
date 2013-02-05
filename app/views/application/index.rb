@@ -3,7 +3,7 @@ class Views::Application::Index < Views::Application::Page
 
 
   def sub_title
-    super("přehled")
+    super("overview")
   end
 
 
@@ -15,7 +15,7 @@ class Views::Application::Index < Views::Application::Page
       link_to new_resource_url, {class: 'btn btn-success'}.reverse_merge(options) do
         i class: 'icon-plus-sign icon-white'
         text nbsp
-        text 'Přidat '
+        text 'Add new '
       end
     end
   end

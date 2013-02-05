@@ -6,7 +6,7 @@ class Views::Admin::Dashboard::Show < Views::Application::Show
   end
 
   def sub_title
-    super('přehled služeb')
+    super('services overview')
   end
 
   def page_body
@@ -22,13 +22,13 @@ class Views::Admin::Dashboard::Show < Views::Application::Show
                end
             end
             div class: :span7 do
-              h5 {small( count > 1 ? 'nové' : 'nová')}
+              h5 {small( count > 1 ? 'new' : 'new')}
             end
-            h6 count > 1 ? 'objednávky' : 'objednávka'
+            h6 count > 1 ? 'orders' : 'order'
           end
           div class: :span10 do
             h3 { text ProductCategory.find(category_id); text(nbsp); small ProductBrand.find(brand_id) }
-            text 'Poskytovatelé: '
+            text 'Providers: '
             service_providers(category_id, brand_id)
           end
         end
