@@ -2,3 +2,5 @@
 
 - Running sample admin application at the Heroku[http://easyservis-sample.herokuapp.com/admin]. No password required just click Submit/Ok
 - Screenshots[https://www.elance.com/samples/pohodovyserviscz-pohodovyserviscz-dashboard-ruby-on-rails-jquery-twitter-bootstrap-lean-cucumber-com/47164358/?setid=1572499] of the app
+
+test
